@@ -1,0 +1,83 @@
+.uiContainer(class='#{loggedIn}')
+	.pageContainer
+		div(ng-controller='inputController')
+			h1.pageheader Welcome to MappyBird
+			form(name='mapForm', ng-submit='handleForm()', novalidate)
+				div(style='padding: 30px;')
+					div(ng-show='pageIntro')
+						p Looking for an apartment within your budget but also within a certain commute time from work?  I can help!  Tell me your work address, budget, maximum commute time, and preferred mode of travel and I will provide you with a list of apartments currently for rent that fit your requirements.
+					div(ng-show='pageOrigin')
+						p Please enter your work address
+						input(
+							type='text'
+							name='formOrigin'
+							ng-model='origin'
+							id='pageOrigin'
+						)
+					div(ng-show='pagePrice')
+						p Please enter the maximum monthly rent you'd consider
+						input(
+							type='text'
+							name='formPrice'
+							ng-model='price'
+							id='pagePrice'
+						)
+					div(ng-show='pageTime')
+						p Now enter the maximum commute time you'd put up with (in minutes)
+						input(
+							type='text'
+							name='formTime'
+							ng-model='mtime'
+							id='pageTime'
+						)
+					div(ng-show='pageTrans')
+						p Finally, please check the modes of transportation you'd like to use
+						label
+							input(
+								type='checkbox'
+								name='formTrans'
+								value='walk'
+								ng-model='trans.walk'
+								id='pageTrans'
+							)
+							| Walking
+						br
+						label
+							input(
+								type='checkbox'
+								name='formTrans'
+								value='bike'
+								ng-model='trans.bike'
+							)
+							| Bicycle
+						br
+						label
+							input(
+								type='checkbox'
+								name='formTrans'
+								value='bus'
+								ng-model='trans.bus'
+							)
+							| Public Transportation
+						br
+						label
+							input(
+								type='checkbox'
+								name='formTrans'
+								value='car'
+								ng-model='trans.car'
+							)
+							| Car
+					br
+					table(width='60%')
+						tr
+							td(align='left')
+								div(ng-show='showBack')
+									button(type='button' ng-click='moveBack()') Previous
+							td(align='right')
+								div(ng-show='showForward')
+									button(type='button' ng-click='moveForward()') Next
+								div(ng-show='showSubmit')
+									button(type='submit') Submit
+
+
