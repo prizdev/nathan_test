@@ -1,0 +1,22 @@
+html(ng-app='mappyBird')
+	head
+		title(ng-bind='title')
+		base(href='/')
+		link(rel='stylesheet', href='/stylesheets/login.css')
+		script(src='/javascripts/bower_components/jquery/dist/jquery.min.js')
+		script(src='/javascripts/bower_components/angular/angular.min.js')
+		script(src='/javascripts/bower_components/angular-animate/angular-animate.min.js')
+		script(src='/javascripts/bower_components/angular-route/angular-route.min.js')
+		script(src='/javascripts/controllers/main.js')
+		script(src='/javascripts/controllers/config.js')
+		script(src='/javascripts/controllers/api.js')
+
+	body
+		#uiWrapper
+			.uiContainer(class='#{loggedIn}')
+				.pageContainer
+					div(ng-controller='apiController')
+						h1.pageheader Welcome to MappyBird API page
+						div
+							p I don't actually want anyone to see this page, the API bits should deal with scraping, CRUD activities, and getting google maps info in shape
+						div(ng-bind='info')

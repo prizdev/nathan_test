@@ -1,0 +1,13 @@
+.uiContainer(class='#{loggedIn}')
+	.pageContainer
+		div(ng-controller='inputController')
+			h1.pageheader Welcome to MappyBird
+			div(ng-bind='testing')
+			div(id='content-pane')
+				div(id='inputs' ng-bind='inputs')
+				div
+					p
+						button(type='button' ng-click='calculateDistances()') Show Results
+				div(id='outputDiv')
+				div(id='map-canvas')
+
